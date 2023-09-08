@@ -215,26 +215,6 @@ img {
     background-color: #0056b3; /* Darker blue on hover */
 }
 
-/* CSS to align the icon with the heading */
-.icon {
-    vertical-align: middle;
-    margin-right: 0px; /* Adjust the margin as needed */
-    font-size: 28px; /* Adjust the font size to make the icon smaller or larger */
-
-}
-
-/* Additional styling for h2 element */
-.heading {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 19px; /* Adjust the font size */
-    color: red; /* Text color */
-    margin-left: 5px; /* Add margin to separate the icon and heading */
-    font-weight: bold; /* Make the text bold */
-    text-transform: capitalize; /* Transform the text to uppercase */
-}
-
-
 /* Thank You Dialog Box */
 #thank-you-dialog {
     background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
