@@ -1,0 +1,10 @@
+/* Define mobile-specific styles here */
+body {
+    font-size: 16px; /* Adjust the font size for mobile devices */
+}
+
+.container {
+    padding: 10px; /* Add padding to elements for better spacing on small screens */
+}
+
+/* Add more styles as needed for your mobile layout */
