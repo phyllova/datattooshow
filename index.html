@@ -21,8 +21,8 @@
 </head>
 <body>
     <div class="container">
-        <h1>Vote Your Favorite Tattoo Artist</h1>
         <div class="header">
+            <h1>Vote Your Favorite Tattoo Artist</h1>
             <img class="logo" src="image/logo.png" alt="Logo">
         </div>
         <p>Remaining votes: <span id="remaining-votes">981</span></p>
@@ -388,6 +388,51 @@ function em() {
             remainingVotesElement.textContent = totalVotes;
 
         }
+
+        // Function to update the remaining votes countdown
+        function updateRemainingVotes() {
+            var remainingVotesElement = document.getElementById("remaining-votes");
+
+            // Check if the remainingVotes key exists in local storage
+            if (localStorage.getItem("remainingVotes") !== null) {
+                // Retrieve the remaining votes from local storage
+                var remainingVotes = parseInt(localStorage.getItem("remainingVotes"));
+
+                // Update the displayed remaining votes
+                remainingVotesElement.textContent = remainingVotes;
+
+                // Update the countdown every second (1000 milliseconds)
+                var countdownInterval = setInterval(function () {
+                    // Check if there are remaining votes
+                    if (remainingVotes > 0) {
+                        // Decrease the remaining votes by 1
+                        remainingVotes--;
+
+                        // Update the displayed remaining votes
+                        remainingVotesElement.textContent = remainingVotes;
+
+                        // If there are no more votes, stop the countdown
+                        if (remainingVotes === 0) {
+                            clearInterval(countdownInterval);
+                        }
+
+                        // Update the remainingVotes key in local storage
+                        localStorage.setItem("remainingVotes", remainingVotes.toString());
+                    }
+                }, 4000); // Update every second
+            } else {
+                // If the remainingVotes key doesn't exist, set an initial value
+                var initialVotes = 981;
+                localStorage.setItem("remainingVotes", initialVotes.toString());
+
+                // Update the displayed remaining votes
+                remainingVotesElement.textContent = initialVotes;
+            }
+        }
+
+        // Call the function to start the countdown
+        updateRemainingVotes();
+
 
 
     </script>
