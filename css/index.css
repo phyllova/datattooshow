@@ -74,11 +74,12 @@
             color: red;
         }
         .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 10px;
+             background-color: #f5f5f5;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 20px;
             text-align: center;
-            box-shadow: 50;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
         .candidate {
             display: inline-block;
