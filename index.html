@@ -22,26 +22,26 @@
 <body>
     <div class="container">
         <div class="header">
-            <h1>Vote Your Favorite Tattoo Artist</h1>
+            <h1 id="dynamic-header">Vote Your Favorite Tattoo Artist</h1>
             <img class="logo" src="image/logo.png" alt="Logo">
         </div>
         <p>Remaining votes: <span id="remaining-votes">981</span></p>
-        <div class="candidate" onclick="showVoteDialog()" >
+        <div class="candidate" onclick="showVoteDialog()" data-index="0">
             <img src="image/v1.JPG" alt="Artist 1">
             <h2>Monarch studio</h2>
             <p>Percentage: <span id="percentage-artist1">20%</span></p>
         </div>
-        <div class="candidate" onclick="showVoteDialog()" >
+        <div class="candidate" onclick="showVoteDialog()" data-index="1">
             <img src="image/v2.JPG" alt="Artist 2">
             <h2>Glassmoon tattoo</h2>
             <p>Percentage: <span id="percentage-artist2">50%</span></p>
         </div>
-        <div class="candidate" onclick="showVoteDialog()" >
+        <div class="candidate" onclick="showVoteDialog()" data-index="2">
             <img src="image/v3.JPG" alt="Artist 3">
             <h2>Wolfandgoat tattoo</h2>
             <p>Percentage: <span id="percentage-artist3">15%</span></p>
         </div>
-        <div class="candidate" onclick="showVoteDialog()" >
+        <div class="candidate" onclick="showVoteDialog()" data-index="3">
             <img src="image/v4.JPG" alt="Artist 4">
             <h2>Til Death Denver</h2>
             <p>Percentage: <span id="percentage-artist4">70%</span></p>
@@ -369,72 +369,62 @@ function em() {
              dialog.style.display = "none";
          }
 
+       // Variable to track the countdown interval
+        var countdownInterval;
 
-        function updateUI() {
-            var remainingVotesElement = document.getElementById("remaining-votes");
-            var candidateElements = document.getElementsByClassName("candidate");
+        // Function to start the countdown
+        function startCountdown() {
+            countdownInterval = setInterval(function () {
+                // Check if the page is currently visible to the user
+                if (!document.hidden) {
+                    // Get the remaining votes
+                    var remainingVotesElement = document.getElementById("remaining-votes");
+                    var remainingVotes = parseInt(remainingVotesElement.textContent);
 
-            for (var i = 0; i < candidates.length; i++) {
-                var votesElement = document.getElementById("votes-artist" + (i + 1));
-                var percentageElement = document.getElementById("percentage-artist" + (i + 1));
-
-                var votes = candidates[i].votes;
-                var percentage = ((votes / (1000 - totalVotes)) * 100).toFixed(2) + "%";
-
-                votesElement.textContent = votes;
-                percentageElement.textContent = percentage;
-            }
-
-            remainingVotesElement.textContent = totalVotes;
-
-        }
-
-        // Function to update the remaining votes countdown
-        function updateRemainingVotes() {
-            var remainingVotesElement = document.getElementById("remaining-votes");
-
-            // Check if the remainingVotes key exists in local storage
-            if (localStorage.getItem("remainingVotes") !== null) {
-                // Retrieve the remaining votes from local storage
-                var remainingVotes = parseInt(localStorage.getItem("remainingVotes"));
-
-                // Update the displayed remaining votes
-                remainingVotesElement.textContent = remainingVotes;
-
-                // Update the countdown every second (1000 milliseconds)
-                var countdownInterval = setInterval(function () {
-                    // Check if there are remaining votes
+                    // If there are remaining votes, decrement and update
                     if (remainingVotes > 0) {
-                        // Decrease the remaining votes by 1
                         remainingVotes--;
-
-                        // Update the displayed remaining votes
                         remainingVotesElement.textContent = remainingVotes;
-
-                        // If there are no more votes, stop the countdown
-                        if (remainingVotes === 0) {
-                            clearInterval(countdownInterval);
-                        }
-
-                        // Update the remainingVotes key in local storage
-                        localStorage.setItem("remainingVotes", remainingVotes.toString());
+                        localStorage.setItem("remainingVotes", remainingVotes);
                     }
-                }, 4000); // Update every second
-            } else {
-                // If the remainingVotes key doesn't exist, set an initial value
-                var initialVotes = 981;
-                localStorage.setItem("remainingVotes", initialVotes.toString());
-
-                // Update the displayed remaining votes
-                remainingVotesElement.textContent = initialVotes;
-            }
+                }
+            }, 120000); // Update every second
         }
 
-        // Call the function to start the countdown
-        updateRemainingVotes();
+        // Function to stop the countdown
+        function stopCountdown() {
+            clearInterval(countdownInterval);
+        }
+
+        // Function to show the vote dialogue box
+        function showVoteDialog() {
+            startCountdown();
+            // ... Your showVoteDialog function content ...
+        }
+
+        // Function to close the vote dialogue box
+        function closeVoteDialog() {
+            stopCountdown();
+            // ... Your closeVoteDialog function content ...
+        }
 
 
 
+    </script>
+
+    <script>
+        // Get a reference to the <h1> element
+        var dynamicHeader = document.getElementById("dynamic-header");
+
+        // Example: Change the text dynamically
+        dynamicHeader.textContent = "Welcome to the Tattoo Artistry Contest";
+
+        // Example: Change the color dynamically
+        dynamicHeader.style.color = "blue";
+
+        // Example: Add a CSS class dynamically
+        dynamicHeader.classList.add("dynamic-heading");
+        
     </script>
     <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
 
