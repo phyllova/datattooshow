@@ -1,292 +1,203 @@
-/* Common styling for header and body */
-.header,
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+        /* Common styling for header and body */
+        .header,
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-/* Header specific styling */
-.header {
-    background: linear-gradient(45deg, #ff5733, #ffcc29);
-    color: white;
-    text-align: center;
-    padding: 20px 0;
-    position: relative;
-    overflow: hidden;
-}
+        /* Header specific styling */
+        .header {
+            background: linear-gradient(45deg, #ff5733, #ffcc29);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            overflow: hidden;
+        }
 
-.header:before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.1);
-    z-index: -1;
-    transition: opacity 0.3s ease;
-}
+        .header:before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: -1;
+            transition: opacity 0.3s ease;
+        }
 
-.header:hover:before {
-    opacity: 0.5;
-}
+        .header:hover:before {
+            opacity: 0.5;
+        }
 
-.header h1 {
-    font-size: 2em;
-    margin: 0;
-    padding: 10px;
-    animation: colorChange 5s linear infinite;
-}
+        .header h1 {
+            font-size: 2em;
+            margin: 0;
+            padding: 10px;
+            animation: colorChange 5s linear infinite;
+        }
 
-@keyframes colorChange {
-    0% { color: white; }
-    50% { color: #ffcc29; }
-    100% { color: white; }
-}
+        @keyframes colorChange {
+            0% { color: white; }
+            50% { color: #ffcc29; }
+            100% { color: white; }
+        }
 
-/* Add styling for your logo */
-.logo {
-    display: inline-block;
-    vertical-align: middle;
-    width: 100px; /* Adjust width as needed */
-    height: auto;
-}
+        .logo {
+            display: inline-block;
+            vertical-align: middle;
+            width: 100px; /* Adjust width as needed */
+            height: auto;
+        }
+        h1 {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        h2 {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-weight: 400;
+        }
+        p {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 12px;
+            font-weight: 400;
+        }
+        span {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            font-size: 14px;
+            font-weight: 600;
+            color: red;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 10px;
+            text-align: center;
+            box-shadow: 50;
+        }
+        .candidate {
+            display: inline-block;
+            width: calc(30% - 20px); /* Adjusted width to account for margin and padding */
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #fff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+        }
 
-/* Apply a common style to headings and paragraphs */
-h1, h2, p, span {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-}
+        .candidate:hover {
+            transform: translateY(-5px); /* Move the card up slightly on hover */
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
+            background-color: #f0f0f0; /* Change the background color on hover */
+        }
 
-h1 {
-    font-size: 18px;
-    font-weight: bold;
-}
+        /* Mobile styles */
+        @media (max-width: 768px) {
+            .candidate {
+                width: 50%; /* Full width on smaller screens */
+            }
+        }
 
-h2 {
-    font-size: 14px;
-    font-weight: 400;
-}
-
-p {
-    font-size: 12px;
-    font-weight: 400;
-}
-
-span {
-    font-size: 14px;
-    font-weight: 600;
-    color: red;
-}
-
-/* Container styling */
-.container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 10px;
-    text-align: center;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); /* Added box shadow */
-    background-color: #f9f9f9; /* Light gray background */
-    border-radius: 10px; /* Rounded corners */
-}
-
-/* Candidate card styling */
-.candidate {
-    display: inline-block;
-    width: calc(30% - 20px); /* Adjusted width to account for margin and padding */
-    margin: 10px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #fff;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Slight shadow */
-    cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
-    border-radius: 10px; /* Rounded corners */
-}
-
-.candidate:hover {
-    transform: translateY(-5px); /* Move the card up slightly on hover */
-    box-shadow: 0 6px 8px rgba(0, 0, 0, 0.2); /* Add a stronger shadow on hover */
-    background-color: #f0f0f0; /* Change the background color on hover */
-}
-
-/* Mobile styles */
-@media (max-width: 768px) {
-    .candidate {
-        width: 50%; /* Full width on smaller screens */
-    }
-}
-
-/* Image styling */
-img {
-    max-width: 85%;
-    height: auto;
-}
-
-/* Styling for dialog boxes */
-.dialog {
+        img {
+            max-width: 85%;
+            height: auto;
+        }
+        .dialog {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            justify-content: center;
+            align-items: center;
+            z-index: 1; /* Sit on top */
+            overflow: auto; /* Enable scroll if needed */
+        }
+        .dialog-content {
+            background-color: white;
+            position: fixed;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            background-color: #fefefe;
+            margin: 15% auto; /* 15% from the top and centered */
+            border: 1px solid #888;
+            width: 100%;
+        }
+        .close {
+            cursor: pointer;
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+          color: black;
+          text-decoration: none;
+          cursor: pointer;
+        }
+        .dialog-content input {
+        width: 100%;
+          padding: 12px 20px;
+          margin: 8px 0;
+          box-sizing: border-box;
+        }
+        .instagram-logo {
+            width: 30px;
+            height: 30px;
+            vertical-align: middle;
+            margin-right: 10px;
+        }
+/* Style for the vote-dialog container */
+#vote-dialog {
     display: none;
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+    background-color: rgba(0, 0, 0, 0.7); /* Semi-transparent background */
     justify-content: center;
     align-items: center;
     z-index: 1000; /* Ensure it's on top of other elements */
-    overflow: auto; /* Enable scroll if needed */
 }
-
-.dialog-content {
-    background-color: white;
-    position: fixed;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    background-color: #fefefe;
-    margin: 15% auto; /* 15% from the top and centered */
-    border: 1px solid #888;
-    width: 100%;
-}
-
-/* Close button styling */
-.close {
-    cursor: pointer;
-    color: #aaa;
-    float: right;
-    font-size: 28px;
-    font-weight: bold;
-}
-
-.close:hover,
-.close:focus {
-    color: black;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-/* Input field styling */
-.dialog-content input {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    box-sizing: border-box;
-}
-
-/* Social media button styling */
-.social-links {
-    margin-top: 15px;
-}
-
-.social-icon {
-    font-size: 1em;
-    margin: 0 10px;
-    color: #555;
-}
-
-.social-vote-button {
-    margin-top: 15px;
-}
-
-.hotmail-button,
-.yahoo-button,
-.gmail-button,
-.email-button {
-    background-color: #007bff; /* Blue color */
-    color: #fff; /* White text color */
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
-}
-
-/* Hover effect for social media buttons */
-.hotmail-button:hover,
-.yahoo-button:hover,
-.gmail-button:hover,
-.email-button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
-}
-
-/* CSS to align the icon with the heading */
-.icon {
-    vertical-align: middle;
-    margin-right: 0px; /* Adjust the margin as needed */
-    font-size: 28px; /* Adjust the font size to make the icon smaller or larger */
-
-}
-
-/* Additional styling for h2 element */
-.heading {
-    display: inline-block;
-    vertical-align: middle;
-    font-size: 19px; /* Adjust the font size */
-    color: red; /* Text color */
-    margin-left: 5px; /* Add margin to separate the icon and heading */
-    font-weight: bold; /* Make the text bold */
-    text-transform: capitalize; /* Transform the text to uppercase */
-}
-
-
-/* Thank You Dialog Box */
-#thank-you-dialog {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-}
-
-#thank-you-dialog .dialog-content {
-    background-color: white;
-    border-radius: 10px;
-    padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    margin: 15% auto; /* 15% from the top and centered */
-    border: 1px solid #888;
-    width: 80%;
-}
-
-#thank-you-dialog .dialog-content p {
-    font-size: 16px;
-    margin-top: 20px;
-}
-
-/* Additional styling for the vote-dialog container */
-#vote-dialog {
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-/* Additional styling for the vote-dialog content */
+/* Style for the vote-dialog content */
 .vote-dialog-content {
     background-color: #fff;
-    border-radius: 10px;
     padding: 20px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     text-align: center;
-    width: 80%;
 }
-
-/* Additional styling for the heading inside the vote-dialog */
+/* Style for the heading */
 .vote-dialog-content h2 {
     font-size: 24px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
-
-/* Additional styling for the paragraph inside the vote-dialog */
+/* Style for the paragraph */
 .vote-dialog-content p {
     font-size: 16px;
     margin-bottom: 20px;
 }
-
-/* Additional styling for the option buttons */
+/* Style for the option buttons */
 .option-button {
     background-color: #007bff; /* Blue color */
     color: #fff; /* White text color */
@@ -296,46 +207,68 @@ img {
     border-radius: 5px;
     cursor: pointer;
     margin-right: 10px;
-    transition: background-color 0.3s ease;
 }
-
 /* Hover effect for option buttons */
 .option-button:hover {
     background-color: #0056b3; /* Darker blue on hover */
 }
-
-/* Additional styling for social links */
-.social-links {
+  .social-links {
     margin-top: 15px;
-}
-
-.social-icon {
+  }
+  .social-icon {
     font-size: 1em;
     margin: 0 10px;
     color: #555;
-}
-
-.social-vote-button {
+  }
+  .social-vote-button {
     margin-top: 15px;
-}
-
-/* Additional styling for email buttons */
-.email-button {
-    background-color: black;
-    color: #fff;
+  }
+  .hotmail-button {
+    background-color: blue;
+    color: #FFF;
     border: none;
     padding: 5px 10px;
     border-radius: 5px;
     cursor: pointer;
-}
+  }
+  .yahoo-button {
+    background-color: purple;
+    color: #FFF;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
 
-/* Style for the close button in the thank you dialog */
-#thank-you-dialog .close-button {
+  .gmail-button {
+    background-color: red;
+    color: #FFF;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .email-button {
+    background-color: black;
+    color: #FFF;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+/* Style for the close button */
+.close-button {
+    position: absolute;
     top: 10px;
     right: 10px;
+    background: none;
+    border: none;
+    font-size: 24px;
+    cursor: pointer;
+    color: #777; /* Color for the close button */
 }
-
-/* Hover effect for the close button in the thank you dialog */
-#thank-you-dialog .close-button:hover {
+/* Hover effect for the close button */
+.close-button:hover {
     color: #333; /* Darker color on hover */
 }
