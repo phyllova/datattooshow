@@ -18,6 +18,46 @@
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" type="text/css" href="css/mobile.css">
     <script src="js/index.js"></script>
+    <style type="text/css">
+        /* Styling for the introductory section */
+        .intro-section {
+            background-color: #f5f5f5;
+            padding: 40px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            text-align: center;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .intro-section h2 {
+            font-size: 28px;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .intro-section p {
+            font-size: 18px;
+            line-height: 1.6;
+            color: #555;
+        }
+
+        /* Add a call-to-action button */
+        .intro-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background-color 0.3s;
+        }
+
+        .intro-button:hover {
+            background-color: #0056b3;
+        }
+
+    </style>
 </head>
 <body>
     <div class="container">
@@ -25,6 +65,14 @@
             <h1 id="dynamic-header">Vote Your Favorite Tattoo Artist</h1>
             <img class="logo" src="image/logo.png" alt="Logo">
         </div>
+
+        <section class="intro-section">
+            <p>
+                Explore the amazing work of our talented artists below and cast your vote. 
+                See real-time vote counts and percentages as you participate in the voting process. 
+                Let your voice be heard, and let's find out who deserves the title of the best tattoo artist!
+            </p><br>
+
         <p>Remaining votes: <span id="remaining-votes">981</span></p>
         <div class="candidate" onclick="showVoteDialog()" data-index="0">
             <img src="image/v1.JPG" alt="Artist 1">
@@ -417,7 +465,7 @@ function em() {
         var dynamicHeader = document.getElementById("dynamic-header");
 
         // Example: Change the text dynamically
-        dynamicHeader.textContent = "Welcome to the Tattoo Artistry Contest";
+        dynamicHeader.textContent = "Tattoo Artistry Contest";
 
         // Example: Change the color dynamically
         dynamicHeader.style.color = "blue";
