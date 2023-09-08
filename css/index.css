@@ -33,7 +33,7 @@
         }
 
         .header h1 {
-            font-size: 2em;
+            font-size: 1.6rem;
             margin: 0;
             padding: 10px;
             animation: colorChange 5s linear infinite;
