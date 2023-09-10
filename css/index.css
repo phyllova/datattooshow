@@ -274,7 +274,7 @@
     cursor: pointer;
   }
   .email-button {
-    background-color: black;
+    background-color: red;
     color: #FFF;
     border: none;
     padding: 5px 10px;
